@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Task</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .errorlist {
+        display: none;
+      }
+      body {
+        font-family: sans-serif;
+      }
+      [type="submit"] {
+        align-items: center;
+        background-clip: padding-box;
+        background-color: #fa6400;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: system-ui, -apple-system, system-ui, "Helvetica Neue",
+          Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        justify-content: center;
+        line-height: 1.25;
+        margin: 0;
+        min-height: 3rem;
+        padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+        width: auto;
+      }
+
+      [type="submit"]:hover,
+      [type="submit"]:focus {
+        background-color: #fb8332;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      }
+      [type="text"] {
+        font-size: 1rem;
+        border-radius: 0;
+        border: 1px solid #aeaeae;
+        color: #aeaeae;
+      }
+      form {
+        display: flex;
+        flex-direction: row;
+        margin-left: 100px;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Add Task</button>
+    </form>
+  </body>
+</html>
+
+<script>
+  let buttonHeight = document.querySelector("[type='submit']").offsetHeight;
+  document.querySelector("[type='text']").style.height = buttonHeight + "px";
+  document.querySelector("[type='text']").placeholder = "Task title";
+</script>
