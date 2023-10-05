@@ -11,6 +11,12 @@ Project is created with:
 
 ## Setup
 
+* First, clone the repository to your local machine
+
+```shell
+git clone https://github.com/fatemehsarmadi/todo-list.git
+```
+
 * Create virtual environment:
 
 ```shell
